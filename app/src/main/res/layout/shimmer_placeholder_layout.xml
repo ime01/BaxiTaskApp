@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:backgroundTint="@color/cardview_light_background"
+    app:cardCornerRadius="18dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/red_circle_view"
+                android:layout_width="@dimen/img_dimen"
+                android:layout_height="@dimen/img_dimen"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#E91E63"
+                android:contentDescription="@string/image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/Circular" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="@color/cardview_shadow_start_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/red_circle_view"
+                app:layout_constraintStart_toStartOf="@id/red_circle_view"
+                app:layout_constraintTop_toBottomOf="@id/red_circle_view" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/transaction_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/almendra"
+                android:textStyle="bold|italic"
+                app:layout_constraintStart_toEndOf="@+id/red_circle_view"
+                app:layout_constraintEnd_toEndOf="@id/transaction_amount"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/transaction_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/almendra"
+                android:textStyle="bold|italic"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/transaction_description" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/transaction_date"
+                android:fontFamily="@font/almendra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/red_circle_view"
+                app:layout_constraintTop_toBottomOf="@+id/transaction_description" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -22,9 +22,9 @@ class MyInterceptor (): Interceptor {
        // Header: "Authorization" = Bearer + token gotten from login response
 
 
-        val token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRlYmJ5b2Zmb3IiLCJuYW1laWQiOiI4ZDAwNGQzMC1mNDBiLTRhNjYtMDZmNy0wOGQ4M2VlNjkxNmEiLCJVc2VyVHlwZSI6IlBhcnRuZXIiLCJVc2VySWQiOiI4ZDAwNGQzMC1mNDBiLTRhNjYtMDZmNy0wOGQ4M2VlNjkxNmEiLCJBY2NvdW50U291cmNlIjoiTmV3IiwianRpIjoiYWFhNmUyNzMtZmIwNC00YTY5LWEyNWYtMmVlNjM3MTQwYzZhIiwiaWF0IjoxNjM2MDU4MzExLCJDYXRlZ29yeUlkIjoiIiwiUGFydG5lclR5cGVJZCI6IjMiLCJBQ0NFU1NfVFlQRSI6WyJDT05TVU1FUl9BR0VOVCIsIkNPTlNVTUVSX0FHRU5UX0JFTkVGSUNJQVJZIiwiTk9OX0FETUlOIl0sIkV4dGVybmFsVG9rZW4iOiIiLCJuYmYiOjE2MzYwNTgzMTEsImV4cCI6MTYzNjE0NDcxMSwiaXNzIjoiaHR0cHM6Ly9hcGkuZGV2LmJheGktc2VydmljZXMuY29tLyIsImF1ZCI6Imh0dHBzOi8vYXBpLmRldi5iYXhpLXNlcnZpY2VzLmNvbS8ifQ.XqtFQZLSj1mDsSX3j-KP3r7XUFjPzEtSGO095Kd4Ufk"
+        val token2 = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6ImRlYmJ5b2Zmb3IiLCJuYW1laWQiOiI4ZDAwNGQzMC1mNDBiLTRhNjYtMDZmNy0wOGQ4M2VlNjkxNmEiLCJVc2VyVHlwZSI6IlBhcnRuZXIiLCJVc2VySWQiOiI4ZDAwNGQzMC1mNDBiLTRhNjYtMDZmNy0wOGQ4M2VlNjkxNmEiLCJBY2NvdW50U291cmNlIjoiTmV3IiwianRpIjoiOWFmMWQ5YmUtMmFhMC00MmQ4LWJhYmEtZTM4MTA1MDE5MGFmIiwiaWF0IjoxNjM2MDcyNDc3LCJDYXRlZ29yeUlkIjoiIiwiUGFydG5lclR5cGVJZCI6IjMiLCJBQ0NFU1NfVFlQRSI6WyJDT05TVU1FUl9BR0VOVCIsIkNPTlNVTUVSX0FHRU5UX0JFTkVGSUNJQVJZIiwiTk9OX0FETUlOIl0sIkV4dGVybmFsVG9rZW4iOiIiLCJuYmYiOjE2MzYwNzI0NzcsImV4cCI6MTYzNjE1ODg3NywiaXNzIjoiaHR0cHM6Ly9hcGkuZGV2LmJheGktc2VydmljZXMuY29tLyIsImF1ZCI6Imh0dHBzOi8vYXBpLmRldi5iYXhpLXNlcnZpY2VzLmNvbS8ifQ.kBTcMLLkghhhTYwarwSluQW9rB804QU-fY8DUJ7V3kI"
         val requestBuilder = chain.request().newBuilder()
-               requestBuilder.addHeader("Authorization",  "Bearer $token")
+               requestBuilder.addHeader("Authorization",  "Bearer $token2")
                    .build()
 
         return chain.proceed(requestBuilder.build())

@@ -64,10 +64,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         userViewModel.LoginUser(userloginRequest)
 //
                     } else {
-                        showSnackbar(
-                            loginButton,
-                            "Ensure you have proper internet connection and try again"
-                        )
+                        showSnackbar(loginButton, "Ensure you have proper internet connection and try again")
 
                     }
                 }

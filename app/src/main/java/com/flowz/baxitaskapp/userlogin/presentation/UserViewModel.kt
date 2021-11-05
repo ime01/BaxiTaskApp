@@ -6,6 +6,7 @@ import com.flowz.baxitaskapp.userlogin.data.local.LoginRequestModel
 import com.flowz.baxitaskapp.userlogin.domain.model.UserLoginResponse
 import com.flowz.baxitaskapp.common.preference.UserSessionManager
 import com.flowz.sixtjobapp.domain.usecases.LoginUserUseCase
+import com.plcoding.cryptocurrencyappyt.common.Constants.REFRESHTOKEN
 import com.plcoding.cryptocurrencyappyt.common.Constants.SAVETOKENKEY
 import com.plcoding.cryptocurrencyappyt.common.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -73,6 +74,15 @@ class UsersViewModel @Inject constructor(private val usersUseCase: LoginUserUseC
     suspend fun readUserToken(key : String): String{
         return userSessionManager.readUserToken(SAVETOKENKEY)!!
         }
+
+
+    suspend fun saveRefreshUserToken(userToken : String){
+        userSessionManager.saveUserRefreshToken(REFRESHTOKEN,userToken)
+    }
+
+    suspend fun readRefreshUserToken(key : String): String{
+        return userSessionManager.readUserRefreshToken(REFRESHTOKEN)!!
+    }
 
 
 

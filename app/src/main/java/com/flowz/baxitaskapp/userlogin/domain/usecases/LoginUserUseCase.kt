@@ -20,7 +20,7 @@ class LoginUserUseCase @Inject constructor (private val repository:UserRepositor
             emit(Resource.Loading<UserLoginResponse>())
 
             val response = repository.loginUser(loginRequest).data
-            val userResponse = UserLoginResponse(response.tokenData.token, response.firstName)
+            val userResponse = UserLoginResponse(response.tokenData.token, response.firstName, response.tokenData.refreshToken)
 
             emit(Resource.Success(userResponse))
 

@@ -27,6 +27,16 @@ fun showSnackbar(view: View, string: String) {
         Snackbar.make(view, string, Snackbar.LENGTH_LONG).show()
     }
 
+fun TextInputEditText.takeWords() : String{
+    return this.text.toString().trim()
+}
+
+fun clearTexts(views: Array<TextInputEditText>) {
+    views.forEach {
+        it.text?.clear()
+    }
+}
+
 
 @Suppress("DEPRECATION")
 fun getConnectionType(context: Context): Boolean {

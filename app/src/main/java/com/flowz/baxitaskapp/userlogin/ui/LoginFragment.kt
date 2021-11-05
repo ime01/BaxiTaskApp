@@ -1,6 +1,7 @@
 package com.flowz.baxitaskapp.userlogin.ui
 
 import android.os.Bundle
+import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -12,8 +13,10 @@ import com.flowz.baxitaskapp.userlogin.data.local.LoginRequestModel
 import com.flowz.baxitaskapp.databinding.FragmentLoginBinding
 import com.flowz.byteworksjobtask.util.getConnectionType
 import com.flowz.byteworksjobtask.util.showSnackbar
+import com.flowz.byteworksjobtask.util.takeWords
 import com.flowz.sixtjobapp2.presentation.cars_list.UserApiStatus
 import com.flowz.sixtjobapp2.presentation.cars_list.UsersViewModel
+import com.plcoding.cryptocurrencyappyt.common.Constants
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -37,19 +40,36 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         _binding = FragmentLoginBinding.bind(view)
         observeState()
 
-        val userloginRequest = LoginRequestModel("debbyoffor", "Password@2", "android")
+//        val userloginRequest = LoginRequestModel("debbyoffor", "Password@2", "android")
 
 
         binding.apply {
+
             loginButton.setOnClickListener {
 
-                if (getConnectionType(requireContext())){
+                if (TextUtils.isEmpty(userName.text.toString())) {
+                    userName.setError(getString(R.string.enter_valid_input))
+                    return@setOnClickListener
+                } else if (TextUtils.isEmpty(password.text.toString())) {
+                    password.setError(getString(R.string.enter_password))
+                    return@setOnClickListener
+                } else {
+                    val firstName = userName.takeWords()
+                    val password = password.takeWords()
 
-                    userViewModel.LoginUser(userloginRequest)
+                    val userloginRequest = LoginRequestModel(firstName, password, Constants.CHANNEL)
+
+                    if (getConnectionType(requireContext())) {
+
+                        userViewModel.LoginUser(userloginRequest)
 //
-                }else{
-                    showSnackbar(loginButton, "Ensure you have proper internet connection and try again")
+                    } else {
+                        showSnackbar(
+                            loginButton,
+                            "Ensure you have proper internet connection and try again"
+                        )
 
+                    }
                 }
             }
 
@@ -66,17 +86,13 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     when (it) {
                         UserApiStatus.ERROR -> {
 
-//                            errorImage.isVisible = true
-//                            errorText.isVisible = true
                             progressBar.visibility = View.INVISIBLE
 
-                            showSnackbar(loginButton, "Error on Login Process")
+                            showSnackbar(loginButton, getString(R.string.login_error))
 
                         }
                         UserApiStatus.LOADING -> {
 
-//                            shimmerFrameLayout.startShimmer()
-//                            shimmerFrameLayout.visibility = View.VISIBLE
                             progressBar.visibility = View.VISIBLE
 
                         }
@@ -84,10 +100,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         UserApiStatus.DONE -> {
                             progressBar.visibility = View.INVISIBLE
                             userViewModel.userResponseFromNetwork.observe(viewLifecycleOwner, Observer {
-                                userdetails.text = it.userToken
 
                                 lifecycleScope.launch {
                                         userViewModel.saveUserToken(it.userToken)
+                                        userViewModel.saveRefreshUserToken(it.refreshToken)
                                 }
 
                                     Navigation.findNavController(requireView()).navigate(R.id.action_loginFragment_to_transactionHistoryFragment)

@@ -19,6 +19,8 @@ fun UserLoginResponseDto.toUserLoginResponse() : UserLoginResponse {
 
     return UserLoginResponse(
         userToken = data.tokenData.token,
-        firstName = data.firstName
+        firstName = data.firstName,
+        refreshToken = data.tokenData.refreshToken
+
     )
 }

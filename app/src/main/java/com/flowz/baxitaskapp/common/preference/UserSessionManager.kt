@@ -22,7 +22,21 @@ class UserSessionManager @Inject constructor(@ApplicationContext context : Conte
         }
     }
 
+    suspend fun saveUserRefreshToken(tokenkey:String, token:String){
+        val tokenDSkey = preferencesKey<String>(tokenkey)
+        datastorePref.edit { login->
+            login[tokenDSkey] = token
+
+        }
+    }
+
    suspend fun readUserToken(key: String):String?{
+        val dataStoreKey = preferencesKey<String>(key)
+        val preferences = datastorePref.data.first()
+        return preferences[dataStoreKey]
+    }
+
+    suspend fun readUserRefreshToken(key: String):String?{
         val dataStoreKey = preferencesKey<String>(key)
         val preferences = datastorePref.data.first()
         return preferences[dataStoreKey]

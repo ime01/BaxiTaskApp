@@ -8,6 +8,7 @@ object Constants {
     const val TRANSACTIONHISTORY_END_POINT :String= "api/transactions/v1/transactions"
     const val CHANNEL = "android"
     const val DATASTORENAME = "LOGIN"
+    const val REFRESHTOKEN = "REFRESH"
     const val PNUM = 1
 
 

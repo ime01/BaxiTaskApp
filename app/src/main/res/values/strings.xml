@@ -8,4 +8,15 @@
     <string name="error">Error Fetching Data</string>
     <string name="retry_network_call">RETRY</string>
     <string name="fab">fab</string>
+    <string name="welcome">Glad to see you!</string>
+    <string name="username">username</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Signup</string>
+    <string name="new_user">New User?</string>
+    <string name="enter_valid_input">Enter your username</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login_error">Error on Login Process</string>
 </resources>

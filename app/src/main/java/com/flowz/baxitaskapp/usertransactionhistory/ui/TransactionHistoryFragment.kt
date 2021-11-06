@@ -1,6 +1,7 @@
 package com.flowz.baxitaskapp.usertransactionhistory.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.LinearLayout.VERTICAL
@@ -12,13 +13,10 @@ import com.flowz.baxitaskapp.R
 import com.flowz.baxitaskapp.databinding.FragmentTransactionHistoryBinding
 import com.flowz.baxitaskapp.usertransactionhistory.adapter.UserHistoryAdapter
 import com.flowz.baxitaskapp.usertransactionhistory.data.local.DataX
-import com.flowz.baxitaskapp.usertransactionhistory.data.local.TransactionHistoryDto
 import com.flowz.byteworksjobtask.util.getConnectionType
 import com.flowz.byteworksjobtask.util.showSnackbar
-import com.flowz.sixtjobapp2.presentation.cars_list.UserApiStatus
 import com.flowz.sixtjobapp2.presentation.cars_list.UserHistoryApiStatus
 import com.flowz.sixtjobapp2.presentation.cars_list.UserHistoryViewModel
-import com.flowz.sixtjobapp2.presentation.cars_list.UsersViewModel
 import com.plcoding.cryptocurrencyappyt.common.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -61,6 +59,7 @@ class TransactionHistoryFragment : Fragment(R.layout.fragment_transaction_histor
         if (getConnectionType(requireContext())){
 
             viewModel.getUserHistory(Constants.PNUM)
+
         }else{
             showSnackbar(binding.floatingActionButton, "Ensure you have proper internet connection and try again")
 
@@ -68,18 +67,25 @@ class TransactionHistoryFragment : Fragment(R.layout.fragment_transaction_histor
 
     }
 
+
+
     private fun observeState() {
 
         binding.apply {
-
             viewModel.requestHistoryNetworkStatus.observe(viewLifecycleOwner, Observer { state ->
 
                 state?.also {
                     when (it) {
                         UserHistoryApiStatus.ERROR -> {
-                            errorText.visibility = View.VISIBLE
 
-                            showSnackbar(binding.floatingActionButton, "Error on Login Process")
+                            errorText.visibility = View.VISIBLE
+//                            errorText.text =
+//                            shimmerFrameLayout.startShimmer()
+                            shimmerFrameLayout.visibility = View.INVISIBLE
+
+                            showSnackbar(binding.floatingActionButton, "Error Fetching Transaction History")
+
+                            buttonRetry.visibility = View.VISIBLE
 
                             buttonRetry.setOnClickListener {
                                 viewModel.getUserHistory(Constants.PNUM)
@@ -93,9 +99,9 @@ class TransactionHistoryFragment : Fragment(R.layout.fragment_transaction_histor
                         }
 
                         UserHistoryApiStatus.DONE -> {
-                            viewModel.historyResponseFromNetwork.observe(
-                                viewLifecycleOwner,
-                                Observer {
+                            viewModel.historyResponseFromNetwork.observe(viewLifecycleOwner, {
+
+                                Log.e("HISTORY", " History Data is: $it")
 
                                     val details = it.data.data.last()
 

@@ -40,9 +40,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         _binding = FragmentLoginBinding.bind(view)
         observeState()
 
-//        val userloginRequest = LoginRequestModel("debbyoffor", "Password@2", "android")
-
-
         binding.apply {
 
             loginButton.setOnClickListener {

@@ -34,7 +34,6 @@ class UserHistoryViewModel @Inject constructor(private val userHistoryUseCase: U
 
                     requestHistoryNetworkStatus.value = UserHistoryApiStatus.DONE
 
-                    historyResponseFromNetwork.postValue(result.data!!)
                 }
                 is Resource.Error ->{
 
@@ -61,10 +60,6 @@ class UserHistoryViewModel @Inject constructor(private val userHistoryUseCase: U
 
     }
 
-
-    suspend fun saveUserToken(userToken : String){
-        userSessionManager.saveUserToken(SAVETOKENKEY,userToken)
-    }
 
     suspend fun readUserToken(key : String): String{
         return userSessionManager.readUserToken(SAVETOKENKEY)!!

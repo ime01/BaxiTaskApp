@@ -2,7 +2,7 @@ package com.flowz.sixtjobapp2.presentation.cars_list
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.flowz.baxitaskapp.common.preference.UserSessionManager
+import com.flowz.baxitaskapp.preference.UserSessionManager
 import com.flowz.baxitaskapp.usertransactionhistory.data.local.TransactionHistoryDto
 import com.flowz.baxitaskapp.usertransactionhistory.domain.usecases.UserHistoryUseCase
 import com.plcoding.cryptocurrencyappyt.common.Constants.SAVETOKENKEY

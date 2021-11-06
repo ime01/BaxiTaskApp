@@ -2,7 +2,6 @@ package com.flowz.daggerexampleapp.di
 
 
 import android.content.Context
-import com.flowz.baxitaskapp.common.preference.UserSessionManager
 import com.flowz.baxitaskapp.userlogin.domain.repository.UserHistoryRepository
 import com.flowz.baxitaskapp.usertransactionhistory.data.remote.MyInterceptor
 import com.flowz.baxitaskapp.usertransactionhistory.data.remote.UserTransactionHistoryApi

@@ -5,7 +5,7 @@ import android.content.Context
 import com.flowz.baxitaskapp.userlogin.data.remote.LoginApi
 import com.flowz.baxitaskapp.userlogin.data.repository.UserRepositoryImpl
 import com.flowz.baxitaskapp.userlogin.domain.repository.UserRepository
-import com.flowz.baxitaskapp.common.preference.UserSessionManager
+import com.flowz.baxitaskapp.preference.UserSessionManager
 import com.plcoding.cryptocurrencyappyt.common.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides

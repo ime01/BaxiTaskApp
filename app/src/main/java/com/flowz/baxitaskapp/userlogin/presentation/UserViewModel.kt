@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.*
 import com.flowz.baxitaskapp.userlogin.data.local.LoginRequestModel
 import com.flowz.baxitaskapp.userlogin.domain.model.UserLoginResponse
-import com.flowz.baxitaskapp.common.preference.UserSessionManager
+import com.flowz.baxitaskapp.preference.UserSessionManager
 import com.flowz.sixtjobapp.domain.usecases.LoginUserUseCase
 import com.plcoding.cryptocurrencyappyt.common.Constants.REFRESHTOKEN
 import com.plcoding.cryptocurrencyappyt.common.Constants.SAVETOKENKEY

@@ -1,4 +1,4 @@
-package com.flowz.baxitaskapp.common.preference
+package com.flowz.baxitaskapp.preference
 
 import android.content.Context
 import androidx.datastore.preferences.core.edit

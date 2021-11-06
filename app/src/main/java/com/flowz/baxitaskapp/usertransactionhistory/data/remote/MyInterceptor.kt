@@ -2,18 +2,16 @@ package com.flowz.baxitaskapp.usertransactionhistory.data.remote
 
 import android.content.Context
 import android.util.Log
-import com.flowz.baxitaskapp.common.preference.UserSessionManager
+import com.flowz.baxitaskapp.preference.UserSessionManager
 import com.plcoding.cryptocurrencyappyt.common.Constants.SAVETOKENKEY
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import okhttp3.Interceptor
 import okhttp3.Response
-import javax.inject.Inject
 
 
-class MyInterceptor ( context: Context): Interceptor {
+class MyInterceptor (context: Context): Interceptor {
 
      val userSessionManager = UserSessionManager(context)
 

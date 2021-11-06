@@ -13,18 +13,25 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
 class TransactionHistoryModule {
 
     fun httpClient(context: Context): OkHttpClient{
+
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        
         val okHttpClientWithHeader = OkHttpClient.Builder()
             .addInterceptor(MyInterceptor(context))
+            .addInterceptor(logging)
             .readTimeout(60, TimeUnit.SECONDS)
             .connectTimeout(60, TimeUnit.SECONDS)
             .build()
@@ -35,6 +42,14 @@ class TransactionHistoryModule {
     @Provides
     @Singleton
     fun providesTransactionHistoryApi (@ApplicationContext context: Context): UserTransactionHistoryApi{
+
+//        val okHttpClientWithHeader = OkHttpClient.Builder()
+//            .addInterceptor(MyInterceptor(context))
+//            .readTimeout(60, TimeUnit.SECONDS)
+//            .connectTimeout(60, TimeUnit.SECONDS)
+//            .build()
+
+
         return Retrofit.Builder()
             .client(httpClient(context))
             .baseUrl(BASE_URL)

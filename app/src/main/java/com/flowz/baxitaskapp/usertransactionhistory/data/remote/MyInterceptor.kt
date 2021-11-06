@@ -7,6 +7,7 @@ import com.plcoding.cryptocurrencyappyt.common.Constants.SAVETOKENKEY
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -15,14 +16,13 @@ class MyInterceptor (context: Context): Interceptor {
 
      val userSessionManager = UserSessionManager(context)
 
-     val apiToken = readUserToken()
 
     override fun intercept(chain: Interceptor.Chain): Response {
 
        // Header: "Authorization" = Bearer + token gotten from login response
 
         val requestBuilder = chain.request().newBuilder()
-               requestBuilder.addHeader("Authorization",  "Bearer $apiToken")
+               requestBuilder.addHeader("Authorization",  "Bearer ${readUserToken()}")
                    .build()
 
         return chain.proceed(requestBuilder.build())
@@ -31,7 +31,12 @@ class MyInterceptor (context: Context): Interceptor {
     private fun readUserToken(): String {
 
         var token = ""
-        CoroutineScope(Dispatchers.Main).launch {
+//        CoroutineScope(Dispatchers.Main).launch {
+//            token =  userSessionManager.readUserToken(SAVETOKENKEY)!!
+//            Log.e("token", "  Network Request Token is : $token")
+//        }
+
+        runBlocking {
             token =  userSessionManager.readUserToken(SAVETOKENKEY)!!
             Log.e("token", "  Network Request Token is : $token")
         }

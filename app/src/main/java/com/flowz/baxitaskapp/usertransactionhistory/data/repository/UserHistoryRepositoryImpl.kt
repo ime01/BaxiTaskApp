@@ -12,6 +12,9 @@ import javax.inject.Inject
 class UserHistoryRepositoryImpl @Inject constructor(private val historyapi: UserTransactionHistoryApi): UserHistoryRepository{
 
     override suspend fun getHistory(page: Int): TransactionHistoryDto {
+
      return historyapi.getTransactionHistory(page)
+
     }
+
 }

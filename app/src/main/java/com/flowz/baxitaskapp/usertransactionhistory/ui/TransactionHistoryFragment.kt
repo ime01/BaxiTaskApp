@@ -62,7 +62,6 @@ class TransactionHistoryFragment : Fragment(R.layout.fragment_transaction_histor
 
         }else{
             showSnackbar(binding.floatingActionButton, "Ensure you have proper internet connection and try again")
-
         }
 
     }

@@ -18,7 +18,7 @@ enum class  UserHistoryApiStatus {LOADING, ERROR, DONE}
 
 
 @HiltViewModel
-class UserHistoryViewModel @Inject constructor(private val userHistoryUseCase: UserHistoryUseCase, private val userSessionManager: UserSessionManager) :ViewModel() {
+class UserHistoryViewModel @Inject constructor(private val userHistoryUseCase: UserHistoryUseCase) :ViewModel() {
 
 
        val historyResponseFromNetwork = MutableLiveData<TransactionHistoryDto>()
@@ -49,23 +49,6 @@ class UserHistoryViewModel @Inject constructor(private val userHistoryUseCase: U
         }.launchIn(viewModelScope)
 
     }
-
-    private fun readUserToken():String {
-        var token = ""
-        viewModelScope.launch(Dispatchers.Main) {
-            token = readUserToken(SAVETOKENKEY)
-            Log.e("token", "  users's token is: $token")
-        }
-
-        return token
-
-    }
-
-
-    suspend fun readUserToken(key : String): String{
-        return userSessionManager.readUserToken(SAVETOKENKEY)!!
-        }
-
 
 
 }

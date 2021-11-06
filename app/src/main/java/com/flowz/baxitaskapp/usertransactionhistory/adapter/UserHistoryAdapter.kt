@@ -1,12 +1,17 @@
 package com.flowz.baxitaskapp.usertransactionhistory.adapter
 
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
 import com.flowz.baxitaskapp.R
 import com.flowz.baxitaskapp.databinding.TransactionHistoryListItemBinding
 import com.flowz.baxitaskapp.usertransactionhistory.data.local.DataX
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 typealias urlListener = (item: DataX) -> Unit

@@ -9,6 +9,7 @@
     <string name="retry_network_call">RETRY</string>
     <string name="fab">fab</string>
     <string name="welcome">Glad to see you!</string>
+    <string name="ensure_internet">Ensure you have proper internet connection and try again</string>
     <string name="username">username</string>
     <string name="password">Password</string>
     <string name="remember_me">Remember Me</string>
@@ -19,4 +20,5 @@
     <string name="enter_valid_input">Enter your username</string>
     <string name="enter_password">Enter Password</string>
     <string name="login_error">Error on Login Process</string>
+    <string name="history_error">Error Fetching Transaction History</string>
 </resources>

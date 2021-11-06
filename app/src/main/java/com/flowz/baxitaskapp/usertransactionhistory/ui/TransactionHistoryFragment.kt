@@ -61,7 +61,7 @@ class TransactionHistoryFragment : Fragment(R.layout.fragment_transaction_histor
             viewModel.getUserHistory(Constants.PNUM)
 
         }else{
-            showSnackbar(binding.floatingActionButton, "Ensure you have proper internet connection and try again")
+            showSnackbar(binding.floatingActionButton, getString(R.string.ensure_internet))
         }
 
     }
@@ -78,11 +78,10 @@ class TransactionHistoryFragment : Fragment(R.layout.fragment_transaction_histor
                         UserHistoryApiStatus.ERROR -> {
 
                             errorText.visibility = View.VISIBLE
-//                            errorText.text =
-//                            shimmerFrameLayout.startShimmer()
+
                             shimmerFrameLayout.visibility = View.INVISIBLE
 
-                            showSnackbar(binding.floatingActionButton, "Error Fetching Transaction History")
+                            showSnackbar(binding.floatingActionButton, getString(R.string.history_error))
 
                             buttonRetry.visibility = View.VISIBLE
 
@@ -100,16 +99,9 @@ class TransactionHistoryFragment : Fragment(R.layout.fragment_transaction_histor
                         UserHistoryApiStatus.DONE -> {
                             viewModel.historyResponseFromNetwork.observe(viewLifecycleOwner, {
 
-                                Log.e("HISTORY", " History Data is: $it")
-
-                                    val details = it.data.data.last()
-
                                     errorText.visibility = View.INVISIBLE
 
                                     loadRecyclerView(it.data.data)
-
-                                    errorText.text = "${details.transactionDescription}, ${details.transactionAmount}, ${details.transactionDate}"
-
                                 })
 
                         }

@@ -48,7 +48,7 @@ class UserHistoryAdapter  (val listener: urlListener) :ListAdapter<DataX, UserHi
 
         init {
             binding.root.setOnClickListener {
-                listener(absoluteAdapterPosition)
+                listener(adapterPosition)
             }
         }
     }

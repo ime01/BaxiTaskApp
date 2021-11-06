@@ -43,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/password_layout" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcome_user"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/welcome"
@@ -114,7 +114,7 @@
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline4"
-        app:layout_constraintTop_toBottomOf="@id/textView">
+        app:layout_constraintTop_toBottomOf="@id/welcome_user">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/user_name"

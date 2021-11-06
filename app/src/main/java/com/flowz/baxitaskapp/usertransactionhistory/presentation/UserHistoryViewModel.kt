@@ -33,6 +33,7 @@ class UserHistoryViewModel @Inject constructor(private val userHistoryUseCase: U
                 is Resource.Success ->{
 
                     requestHistoryNetworkStatus.value = UserHistoryApiStatus.DONE
+                    historyResponseFromNetwork.postValue(result.data!!)
 
                 }
                 is Resource.Error ->{

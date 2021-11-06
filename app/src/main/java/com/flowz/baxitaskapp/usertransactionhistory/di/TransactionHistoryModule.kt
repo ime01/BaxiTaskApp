@@ -46,7 +46,7 @@ class TransactionHistoryModule {
     @Provides
     @Singleton
     fun providesUserHistoryRepository(historyApi: UserTransactionHistoryApi): UserHistoryRepository {
-        return  UserHistoryRepositoryImpl(historyApi)
+        return UserHistoryRepositoryImpl(historyApi)
     }
 
 

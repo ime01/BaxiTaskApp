@@ -34,10 +34,6 @@ class UserHistoryAdapter  (val listener: urlListener) :ListAdapter<DataX, UserHi
 
             holder.itemView.apply {
                 transactionDescription.text = currentItem.transactionDescription
-//                holder1.time.setText("\u22022" + Utils.DateToTimeFormat(model.getPublishedAt()));
-//                holder1.published_at.setText(Utils.DateFormat(model.getPublishedAt()));
-
-                transactionDate.text = currentItem.transactiondDate
                 transactionDate.text = FromStringToDate(currentItem.transactiondDate).toString()
                 transactionAmount.text = currentItem.transactionAmount.toString()
 

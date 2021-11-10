@@ -1,21 +1,18 @@
 package com.flowz.byteworksjobtask.util
 
 import android.content.Context
-import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.net.Uri
 import android.os.Build
-import android.provider.MediaStore
 import android.view.View
-import android.view.animation.AnimationUtils
-import android.widget.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
-import java.io.ByteArrayOutputStream
-import java.io.InputStream
-
+import org.ocpsoft.prettytime.PrettyTime
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 fun AppCompatActivity.showToast(message: String) {
@@ -35,6 +32,41 @@ fun clearTexts(views: Array<TextInputEditText>) {
     views.forEach {
         it.text?.clear()
     }
+}
+
+fun FromStringToDate(string: String?): Date {
+    val dtStart = "2010-10-15T09:27:37Z"
+    var d = Date()
+    val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+    try {
+        val date = format.parse(dtStart)
+        d = date
+        System.out.println(date)
+    } catch (e: ParseException) {
+        e.printStackTrace()
+    }
+    return d
+}
+
+
+fun FromDateToString(string: String): String {
+    var dateString = ""
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
+    try {
+        val date = Date()
+        val dateTime = dateFormat.format(date)
+        dateString = dateTime
+        println("Current Date Time : $dateTime")
+    } catch (e: ParseException) {
+        e.printStackTrace()
+    }
+    return dateString
+}
+
+fun getCountry(): String? {
+    val locale: Locale = Locale.getDefault()
+    val country: String = java.lang.String.valueOf(locale.getCountry())
+    return country.toLowerCase()
 }
 
 

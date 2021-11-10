@@ -50,7 +50,7 @@ data class DataX(
     @SerializedName("transaction_amount")
     val transactionAmount: Int,
     @SerializedName("transaction_date")
-    val transactionDate: String,
+    val transactiondDate: String,
     @SerializedName("transaction_description")
     val transactionDescription: String,
     @SerializedName("transaction_ref")

@@ -63,7 +63,6 @@ dependencies {
     //preference datastore
    implementation 'androidx.datastore:datastore-preferences:1.0.0-alpha04'
 
-
     // Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:$version_navigation"
     implementation "android.arch.navigation:navigation-ui-ktx:$version_navigation"
@@ -90,6 +89,9 @@ dependencies {
 
 //    Facebook shimmer effect
     implementation "com.facebook.shimmer:shimmer:0.5.0@aar"
+
+    //Times Formater
+    implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
 
     // Espresso and tests utilities for local and instrumentation tests
     androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1"

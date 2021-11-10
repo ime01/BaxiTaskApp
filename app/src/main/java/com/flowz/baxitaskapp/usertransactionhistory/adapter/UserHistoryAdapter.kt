@@ -1,17 +1,13 @@
 package com.flowz.baxitaskapp.usertransactionhistory.adapter
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.ListAdapter
 import com.flowz.baxitaskapp.R
 import com.flowz.baxitaskapp.databinding.TransactionHistoryListItemBinding
 import com.flowz.baxitaskapp.usertransactionhistory.data.local.DataX
-import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
+import com.flowz.byteworksjobtask.util.FromStringToDate
 
 
 typealias urlListener = (item: DataX) -> Unit
@@ -29,6 +25,7 @@ class UserHistoryAdapter  (val listener: urlListener) :ListAdapter<DataX, UserHi
 
     }
 
+
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
 
         val currentItem = getItem(position)
@@ -37,7 +34,11 @@ class UserHistoryAdapter  (val listener: urlListener) :ListAdapter<DataX, UserHi
 
             holder.itemView.apply {
                 transactionDescription.text = currentItem.transactionDescription
-                transactionDate.text = currentItem.transactionDate.format()
+//                holder1.time.setText("\u22022" + Utils.DateToTimeFormat(model.getPublishedAt()));
+//                holder1.published_at.setText(Utils.DateFormat(model.getPublishedAt()));
+
+                transactionDate.text = currentItem.transactiondDate
+                transactionDate.text = FromStringToDate(currentItem.transactiondDate).toString()
                 transactionAmount.text = currentItem.transactionAmount.toString()
 
             }

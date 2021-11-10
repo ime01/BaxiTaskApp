@@ -6,6 +6,7 @@ import com.flowz.baxitaskapp.userlogin.domain.repository.UserHistoryRepository
 import com.flowz.baxitaskapp.usertransactionhistory.data.remote.MyInterceptor
 import com.flowz.baxitaskapp.usertransactionhistory.data.remote.UserTransactionHistoryApi
 import com.flowz.baxitaskapp.usertransactionhistory.data.repository.UserHistoryRepositoryImpl
+import com.google.gson.GsonBuilder
 import com.plcoding.cryptocurrencyappyt.common.Constants.BASE_URL
 import dagger.Module
 import dagger.Provides
@@ -28,7 +29,7 @@ class TransactionHistoryModule {
 
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-        
+
         val okHttpClientWithHeader = OkHttpClient.Builder()
             .addInterceptor(MyInterceptor(context))
             .addInterceptor(logging)
@@ -42,13 +43,6 @@ class TransactionHistoryModule {
     @Provides
     @Singleton
     fun providesTransactionHistoryApi (@ApplicationContext context: Context): UserTransactionHistoryApi{
-
-//        val okHttpClientWithHeader = OkHttpClient.Builder()
-//            .addInterceptor(MyInterceptor(context))
-//            .readTimeout(60, TimeUnit.SECONDS)
-//            .connectTimeout(60, TimeUnit.SECONDS)
-//            .build()
-
 
         return Retrofit.Builder()
             .client(httpClient(context))

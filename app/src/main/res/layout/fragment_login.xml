@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
-    android:background="@drawable/loginbackground"
+    android:background="@drawable/splash2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".userlogin.ui.LoginFragment">
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#E91E63"
+        android:backgroundTint="@color/b_accent"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/forgot_password"
         app:layout_constraintStart_toStartOf="@+id/guideline4"
@@ -111,6 +111,7 @@
         android:layout_marginEnd="8dp"
         android:hint="@string/username"
         app:hintEnabled="true"
+        app:boxStrokeColor="@color/b_accent"
         android:backgroundTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline4"
@@ -135,6 +136,7 @@
         android:hint="@string/password"
         android:backgroundTint="@color/white"
         app:hintEnabled="true"
+        app:boxStrokeColor="@color/b_accent"
         app:layout_constraintEnd_toEndOf="@+id/name_layout"
         app:layout_constraintStart_toEndOf="@id/guideline4"
         app:layout_constraintTop_toBottomOf="@id/name_layout">

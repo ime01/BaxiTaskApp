@@ -2,9 +2,9 @@
 
 ![Screenshot_20211106-020424_BaxiTaskApp](https://user-images.githubusercontent.com/44091450/140593686-2004ab93-9e93-4e03-b9e2-400db3f6c5c7.jpg)
 
-![Screenshot_20211106-020427_BaxiTaskApp](https://user-images.githubusercontent.com/44091450/140593682-c6d76ef3-7420-4d16-94b7-a1e009edc395.jpg)
+![Screenshot_20211113-143800_BaxiTaskApp](https://user-images.githubusercontent.com/44091450/141646002-e2793fc3-644f-4fd5-b1b7-d1e2190588cb.jpg)
 
-![Screenshot_20211106-020440_BaxiTaskApp](https://user-images.githubusercontent.com/44091450/140593685-e6cdb123-220a-4455-be52-77aa063a242a.jpg)
+![Screenshot_20211113-143717_BaxiTaskApp](https://user-images.githubusercontent.com/44091450/141646004-c068193e-6a5e-4f86-8d04-5d8bc27d9832.jpg)
 
 
 
